@@ -1,15 +1,20 @@
 extends layout
 block content
+    if errors
+        p The following errors were found:
+        ul
+            each error in errors
+                li #{error}
     form(action='/create' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         label(for='firstName') First Name
-        input(type='text' id='firstName' name='firstName' value='firstName')
+        input(type='text' id='firstName' name='firstName' value=firstName)
         label(for='lastName') Last Name
-        input(type='text' id='lastName' name='lastName' value='lastName')
+        input(type='text' id='lastName' name='lastName' value=lastName)
         label(for='lastName') Email
-        input(type='email' id='email' name='email' value='email')
+        input(type='email' id='email' name='email' value=email)
         label(for='password') Password
-        input(type='password' id='password' name='password' value='password')
+        input(type='password' id='password' name='password' value=password)
         label(for='confirmedPassword') Confirm Password
-        input(type='password' id='confirmedPassword' name='confirmedPassword' value='confirmedPassword')
+        input(type='password' id='confirmedPassword' name='confirmedPassword' value=confirmedPassword)
         input(type='submit' value='Create User')

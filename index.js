@@ -35,6 +35,10 @@ app.post("/create", csrfProtection, (req, res) => {
     errors.push("Please provide a first name.")
   }
 
+app.get("/create-interesting", csrfProtection, (req, res) => {
+  res.render("create-interesting", { title: "Create Interesting User", messages: [], csrfToken: req.csrfToken() })
+})
+
   if (!lastName) {
     errors.push("Please provide a last name.")
   }
